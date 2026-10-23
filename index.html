@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kỷ niệm 5 năm - Sông Trà Logistics</title>
+<style>
+:root {
+  --navy: #102d48;
+  --gold: #c7a66a;
+  --cream: #fffaf0;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--navy);
+  background: linear-gradient(135deg,#e7e1d5,#f8f4ea);
+  text-align: center;
+}
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 14px 40px;
+}
+.small { letter-spacing: 3px; font-size: 12px; }
+h1 { font-size: clamp(26px,5vw,40px); margin: 12px 0; }
+.gold { color: var(--gold); }
+.envelope {
+  width: min(360px, 90vw);
+  height: 245px;
+  margin: 24px auto;
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.env-body {
+  position: absolute; inset: 0;
+  background: var(--navy);
+  border: 2px solid var(--gold);
+  box-shadow: 0 14px 35px #102d4830;
+}
+.env-flap {
+  position: absolute; inset: 0 0 auto;
+  height: 0;
+  border-left: calc(min(360px,90vw)/2) solid transparent;
+  border-right: calc(min(360px,90vw)/2) solid transparent;
+  border-top: 150px solid var(--gold);
+  transform-origin: top;
+  transition: transform .9s ease;
+  z-index: 3;
+}
+.env-label {
+  position: absolute;
+  inset: 65px 10px auto;
+  color: var(--cream);
+  z-index: 2;
+  line-height: 1.8;
+}
+.seal {
+  position: absolute;
+  z-index: 4;
+  top: 110px; left: calc(50% - 22px);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  display: grid; place-items: center;
+  font-size: 18px;
+  transition: opacity .4s;
+}
+.envelope.open .env-flap { transform: rotateX(180deg); }
+.envelope.open .seal { opacity: 0; }
+.envelope.open .env-label { opacity: 0; }
+.invitation {
+  display: none;
+  width: min(520px, 100%);
+  padding: 34px 23px;
+  border: 1px solid var(--gold);
+  outline: 5px solid #fffaf080;
+  background: var(--cream);
+  box-shadow: 0 14px 40px #102d4820;
+  line-height: 1.8;
+  animation: appear .8s ease;
+}
+.invitation.show { display: block; }
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+button, .linkbtn {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  background: var(--navy);
+  color: white;
+  padding: 12px 18px;
+  margin: 6px 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  font: inherit;
+}
+button:hover, .linkbtn:hover { background: #214b70; }
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #cbbd9d;
+  background: white;
+  font: inherit;
+}
+.form { text-align: left; margin-top: 20px; }
+#status { font-size: 14px; }
+footer { margin-top: 28px; font-size: 12px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="small">TRÂN TRỌNG KÍNH MỜI</div>
+  <h1 class="gold">SÔNG TRÀ LOGISTICS</h1>
+  <div>KỶ NIỆM 5 NĂM THÀNH LẬP</div>
+
+  <section id="envelope" class="envelope"
+           role="button" tabindex="0"
+           aria-label="Mở thiệp mời" onclick="openCard()"
+           onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCard()}">
+    <div class="env-body"></div>
+    <div class="env-label">
+      <div class="small">THƯ MỜI</div>
+      <div class="gold">Mỗi Chuyến Đi Là Một Điểm Đến Tốt Hơn!</div>
+      <div>Nhấn để mở thư</div>
+    </div>
+    <div class="env-flap"></div>
+    <div class="seal">ST</div>
+  </section>
+
+  <article id="invitation" class="invitation">
+    <div class="small gold">THƯ MỜI THAM DỰ</div>
+    <h1>Kỷ niệm 5 năm</h1>
+    <h2>SÔNG TRÀ LOGISTICS</h2>
+    <p>Trân trọng kính mời</p>
+    <h2 id="guestName" class="gold">Quý khách</h2>
+    <p>
+      Đến tham dự buổi tiệc kỷ niệm 5 năm thành lập
+      Công Ty TNHH Sông Trà Logistics.
+    </p>
+    <p><b>Thời gian:</b><br>
+      17:30 – 23:00, ngày 21/11/2026
+    </p>
+    <p><b>Địa điểm:</b><br>
+      Long Biên Palace<br>
+      <span id="venueAddress">Vui lòng cập nhật địa chỉ chính xác của địa điểm tổ chức.</span>
+    </p>
+
+    <a id="mapLink" class="linkbtn"
+       href="https://www.google.com/maps/search/?api=1&query=Long+Bien+Palace+Tan+Son"
+       target="_blank" rel="noopener">Mở Google Maps</a>
+
+    <div class="form">
+      <h3>Xác nhận tham dự</h3>
+      <label for="attendance">Tình trạng tham dự</label>
+      <select id="attendance">
+        <option value="Tham dự">Tôi sẽ tham dự</option>
+        <option value="Không tham dự">Tôi không thể tham dự</option>
+      </select>
+      <label for="guestCount">Số người tham dự</label>
+      <input id="guestCount" type="number" min="1" max="20"
+             value="1" inputmode="numeric">
+      <label for="note">Lời nhắn (nếu có)</label>
+      <input id="note" type="text" maxlength="300"
+             placeholder="Nhập lời nhắn">
+      <button type="button" onclick="submitRSVP()">
+        Gửi xác nhận
+      </button>
+      <p id="status" role="status"></p>
+    </div>
+    <footer>Mỗi Chuyến Đi Là Một Điểm Đến Tốt Hơn!</footer>
+  </article>
+</main>
+
+<script>
+// 1. Tên khách được đọc từ đường link ?name=...
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+document.getElementById("guestName").textContent =
+  name ? name.slice(0, 100) : "Quý khách";
+
+// 2. Mở thiệp
+function openCard() {
+  document.getElementById("envelope").classList.add("open");
+  setTimeout(() => {
+    document.getElementById("invitation").classList.add("show");
+    document.getElementById("invitation").scrollIntoView({
+      behavior: "smooth", block: "start"
+    });
+  }, 450);
+}
+
+// 3. Dán URL Web App của Google Apps Script ở Bước 5
+const GOOGLE_SCRIPT_URL = "DAN_URL_WEB_APP_VAO_DAY";
+
+async function submitRSVP() {
+  const status = document.getElementById("status");
+  const attendance = document.getElementById("attendance").value;
+  const count = Number(document.getElementById("guestCount").value);
+  const note = document.getElementById("note").value.trim();
+
+  if (!Number.isInteger(count) || count < 1 || count > 20) {
+    status.textContent = "Vui lòng nhập số người từ 1 đến 20.";
+    return;
+  }
+  if (!name) {
+    status.textContent = "Thiệp chưa có tên khách. Vui lòng liên hệ ban tổ chức.";
+    return;
+  }
+  if (!GOOGLE_SCRIPT_URL.startsWith("https://script.google.com/")) {
+    status.textContent = "Chưa kết nối Google Sheets. Cần hoàn thành Bước 5.";
+    return;
+  }
+
+  status.textContent = "Đang gửi xác nhận...";
+  const payload = new URLSearchParams({
+    name: name.slice(0, 100),
+    attendance,
+    count: String(count),
+    note: note.slice(0, 300),
+    submittedAt: new Date().toISOString()
+  });
+
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: payload
+    });
+    status.textContent =
+      "Đã gửi yêu cầu. Vui lòng liên hệ ban tổ chức nếu cần xác nhận lại.";
+  } catch (error) {
+    status.textContent =
+      "Chưa gửi được. Vui lòng thử lại hoặc liên hệ ban tổ chức.";
+  }
+}
+</script>
+</body>
+</html>
