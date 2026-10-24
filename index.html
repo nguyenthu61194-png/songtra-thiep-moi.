@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b3458">
+<title>Thiệp mời kỷ niệm 5 năm | Sông Trà Logistics</title>
+<style>
+:root{--navy:#0b3458;--blue:#1b5c84;--gold:#c99b42;--cream:#fffaf0;--ink:#193a52}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#e8f3f9,#fffaf0 48%,#eaf4f8);color:var(--ink);font-family:Georgia,"Times New Roman",serif}
+button,input,select,textarea{font:inherit}
+.wrap{width:min(100% - 24px,850px);margin:0 auto;padding:20px 0 46px}
+.kicker{text-align:center;text-transform:uppercase;letter-spacing:3px;font:700 11px Arial,sans-serif;color:#547d95;margin:4px 0 18px}
+.cover{position:relative;overflow:hidden;border:1px solid var(--gold);border-radius:18px;background:#fffaf0;box-shadow:0 18px 50px #0b345824}
+.cover-art{display:block;width:100%;height:auto;max-height:78vh;object-fit:cover;object-position:top}
+.cover-bottom{padding:18px 16px 24px;text-align:center;background:linear-gradient(180deg,#fffdf8,#eaf4f8)}
+.tagline{font-style:italic;color:var(--navy);font-size:clamp(17px,3.5vw,24px);margin:0 0 14px}
+.btn{border:1px solid var(--gold);border-radius:999px;background:var(--navy);color:#fff;padding:13px 24px;font:bold 14px Arial,sans-serif;cursor:pointer;box-shadow:0 5px 14px #0b345824}
+.btn:hover{background:#174f75}
+.opened{display:none;margin-top:22px;animation:appear .6s ease both}
+.opened.show{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.panel{background:#fffdf8;border:1px solid var(--gold);border-radius:16px;padding:clamp(18px,4vw,36px);box-shadow:0 14px 40px #0b345817;position:relative}
+.panel:before{content:"";position:absolute;inset:8px;border:1px solid #ead9b4;border-radius:10px;pointer-events:none}
+.panel-inner{position:relative;text-align:center}
+.logos{display:block;width:min(100%,650px);height:auto;max-height:150px;object-fit:contain;margin:0 auto 20px}
+.company{font:bold clamp(14px,2.8vw,19px) Arial,sans-serif;letter-spacing:1px;color:var(--navy);margin:12px 0}
+.eyebrow{font:700 11px Arial,sans-serif;letter-spacing:3px;color:#a47727;text-transform:uppercase;margin:18px 0 8px}
+h1{font-size:clamp(29px,6vw,47px);line-height:1.12;color:var(--navy);margin:8px 0}
+.gold{color:#b7832c;font-style:italic;font-weight:normal}
+.sub{font-size:clamp(16px,3vw,21px);line-height:1.6;margin:12px auto;max-width:650px}
+.namebox{margin:22px auto 8px;max-width:420px}
+.namebox label{display:block;font:700 12px Arial,sans-serif;letter-spacing:1.4px;color:#8e6a2e;text-transform:uppercase;margin-bottom:8px}
+.namebox input{width:100%;padding:13px 14px;border:1px solid #d9c28f;border-radius:8px;background:#fff;text-align:center;font-size:18px;color:var(--navy);outline-color:var(--gold)}
+.note{font:12px Arial,sans-serif;color:#6c7f8c;margin:8px 0 0}
+.event-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+.event{border:1px solid #e4d2a8;border-radius:10px;background:#fffaf0;padding:18px 14px;text-align:left}
+.event small{font:700 11px Arial,sans-serif;letter-spacing:1.6px;text-transform:uppercase;color:#a47727}
+.event h2{font-size:20px;color:var(--navy);margin:9px 0}
+.event p{font-size:15px;line-height:1.55;margin:5px 0}
+.map{display:inline-block;text-decoration:none;background:#f5ecd5;border:1px solid var(--gold);color:var(--navy);border-radius:999px;padding:12px 18px;font:bold 13px Arial,sans-serif;margin:2px 0 8px}
+.section-title{font-size:27px;color:var(--navy);margin:28px 0 8px}
+.rsvp{margin-top:26px;background:#f0f6f9;border:1px solid #d4e4eb;border-radius:12px;padding:22px;text-align:left}
+.rsvp h2{text-align:center;font-size:25px;color:var(--navy);margin:0 0 7px}
+.rsvp .intro{text-align:center;font:13px Arial,sans-serif;color:#617889;margin:0 0 18px}
+.field{margin:12px 0}
+.field label{display:block;font:bold 13px Arial,sans-serif;color:#28465b;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:11px 12px;border:1px solid #cbdce4;border-radius:8px;background:#fff;color:#20384a}
+.field textarea{min-height:76px;resize:vertical}
+.radios{display:flex;gap:18px;flex-wrap:wrap;font:14px Arial,sans-serif}
+.radios label{display:flex;align-items:center;gap:7px}
+.radios input{width:auto}
+.actions{text-align:center;margin-top:18px}
+.contact{text-align:center;font:13px/1.7 Arial,sans-serif;color:#607786;margin:22px 0 0}
+.footer{text-align:center;color:var(--navy);font-style:italic;font-size:20px;margin:18px 0 0}
+.status{text-align:center;font:13px Arial,sans-serif;color:#315b75;margin-top:12px;white-space:pre-line}
+@media(max-width:560px){.wrap{width:min(100% - 14px,850px);padding-top:10px}.cover{border-radius:12px}.cover-art{max-height:none}.event-grid{grid-template-columns:1fr}.event{text-align:center}.panel{padding:18px 13px}.logos{max-height:105px}.rsvp{padding:16px 12px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="kicker">2021 — 2026 · Một hành trình, nhiều giá trị</p>
+  <section class="cover" id="cover">
+    <img class="cover-art" src="assets/bia-thiep-song-tra.png" alt="Bìa thiệp kỷ niệm 5 năm Sông Trà Logistics">
+    <div class="cover-bottom">
+      <p class="tagline">“Mỗi Chuyến Đi Là Một Điểm Đến Tốt Hơn!”</p>
+      <button class="btn" id="openBtn" type="button">✦ Chạm để mở thư ✦</button>
+    </div>
+  </section>
+
+  <section class="opened" id="opened">
+    <div class="panel">
+      <div class="panel-inner">
+        <img class="logos" src="assets/bon-logo-song-tra.png" alt="Bốn logo Sông Trà">
+        <p class="company">CÔNG TY TNHH SÔNG TRÀ LOGISTICS</p>
+        <p class="eyebrow">Trân trọng kính mời</p>
+        <h1 class="gold">Quý khách</h1>
+        <p class="sub"><strong>Tham dự kỷ niệm 5 năm thành lập</strong></p>
+        <p class="sub">Trân trọng cảm ơn Quý Khách hàng và Đối tác đã tin tưởng, đồng hành cùng chúng tôi trong suốt chặng đường vừa qua. Sự hiện diện của Quý vị là niềm vinh hạnh và động lực để Sông Trà tiếp tục phát triển.</p>
+        <div class="namebox">
+          <label for="guestName">Kính mời</label>
+          <input id="guestName" type="text" placeholder="Tên khách mời (để trống hoặc nhập tên)">
+          <p class="note">Tên khách mời đang để trống để chị tự điền khi gửi thiệp.</p>
+        </div>
+        <div class="event-grid">
+          <div class="event">
+            <small>Thời gian</small>
+            <h2>17:30 – 23:00</h2>
+            <p>Thứ Bảy, ngày 21/11/2026</p>
+          </div>
+          <div class="event">
+            <small>Địa điểm</small>
+            <h2>Long Biên Palace</h2>
+            <p>Trung tâm Hội nghị – Tiệc cưới</p>
+            <p>Sân Golf Tân Sơn Nhất, số 6 Tân Sơn, phường An Hội Tây, TP. Hồ Chí Minh</p>
+          </div>
+        </div>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Long+Bien+Palace+San+Golf+Tan+Son+Nhat+Ho+Chi+Minh" target="_blank" rel="noopener">⌖ Xem bản đồ Google Maps</a>
+
+        <h2 class="section-title">Giao lưu Golf</h2>
+        <p class="sub">11:30 · Thứ Bảy, ngày 21/11/2026 · Sân Golf Tân Sơn Nhất</p>
+
+        <section class="rsvp">
+          <h2>Xác nhận tham dự</h2>
+          <p class="intro">Vui lòng điền thông tin và gửi xác nhận đến Ban Tổ Chức.</p>
+          <form id="rsvpForm">
+            <div class="field"><label for="fullName">Họ và tên *</label><input id="fullName" name="fullName" required placeholder="Nhập họ và tên"></div>
+            <div class="field"><label for="unit">Công ty / Đơn vị</label><input id="unit" name="unit" placeholder="Nhập tên công ty (nếu có)"></div>
+            <div class="field">
+              <label>Bạn có tham dự buổi tiệc?</label>
+              <div class="radios">
+                <label><input type="radio" name="attendance" value="Có tham dự" checked> Có tham dự</label>
+                <label><input type="radio" name="attendance" value="Không tham dự"> Không tham dự</label>
+              </div>
+            </div>
+            <div class="field"><label for="count">Số người tham dự</label><select id="count" name="count"><option>1 người</option><option>2 người</option><option>3 người</option><option>4 người</option><option>5 người</option></select></div>
+            <div class="field"><label for="golf">Tham gia giao lưu Golf?</label><select id="golf" name="golf"><option>Chưa xác nhận</option><option>Có</option><option>Không</option></select></div>
+            <div class="field"><label for="message">Lời nhắn</label><textarea id="message" name="message" placeholder="Lời nhắn (không bắt buộc)"></textarea></div>
+            <div class="actions"><button class="btn" type="submit">Tạo nội dung xác nhận</button></div>
+          </form>
+          <p class="status" id="status" aria-live="polite"></p>
+          <div class="actions"><button class="map" type="button" id="copyBtn">Sao chép nội dung xác nhận</button></div>
+          <p class="note" style="text-align:center">Liên hệ xác nhận: Linh · 0945 721 921. Bản này chưa tự lưu dữ liệu vào Google Sheets; cần kết nối thêm để lưu RSVP tập trung.</p>
+        </section>
+        <p class="contact">Trân trọng cảm ơn sự đồng hành của Quý Khách hàng và Đối tác.</p>
+        <p class="footer">Mỗi Chuyến Đi Là Một Điểm Đến Tốt Hơn!</p>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+const openBtn=document.getElementById('openBtn');
+openBtn.addEventListener('click',()=>{
+  openBtn.textContent='Đang mở thư…';
+  setTimeout(()=>{
+    document.getElementById('opened').classList.add('show');
+    document.getElementById('opened').scrollIntoView({behavior:'smooth',block:'start'});
+    openBtn.textContent='✦ Đã mở thư ✦';
+    openBtn.disabled=true;
+  },350);
+});
+const form=document.getElementById('rsvpForm');
+const statusEl=document.getElementById('status');
+let confirmation='';
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const d=new FormData(form);
+  confirmation=[
+    'XÁC NHẬN THAM DỰ – KỶ NIỆM 5 NĂM SÔNG TRÀ LOGISTICS',
+    'Họ và tên: '+d.get('fullName'),
+    'Công ty/Đơn vị: '+(d.get('unit')||'Không cung cấp'),
+    'Tham dự tiệc: '+d.get('attendance'),
+    'Số người: '+d.get('count'),
+    'Giao lưu Golf: '+d.get('golf'),
+    'Lời nhắn: '+(d.get('message')||'Không có'),
+    'Thời gian tiệc: 17:30–23:00, 21/11/2026',
+    'Liên hệ: Linh 0945 721 921'
+  ].join('\n');
+  statusEl.textContent='Đã tạo nội dung xác nhận. Bấm “Sao chép nội dung xác nhận”, sau đó gửi cho Ban Tổ Chức qua Zalo.';
+});
+document.getElementById('copyBtn').addEventListener('click',async()=>{
+  if(!confirmation){form.requestSubmit();return;}
+  try{await navigator.clipboard.writeText(confirmation);statusEl.textContent='Đã sao chép nội dung. Chị có thể dán vào Zalo gửi Linh: 0945 721 921.';}
+  catch(err){statusEl.textContent=confirmation;}
+});
+</script>
+</body>
+</html>
